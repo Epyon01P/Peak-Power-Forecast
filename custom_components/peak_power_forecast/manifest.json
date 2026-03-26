@@ -1,0 +1,11 @@
+{
+  "domain": "peak_power_forecast",
+  "name": "Peak Power Forecast",
+  "codeowners": ["@Epyon01P"],
+  "config_flow": true,
+  "documentation": "https://github.com/Epyon01P/Peak-Power-Forecast",
+  "issue_tracker": "https://github.com/Epyon01P/Peak-Power-Forecast/issues",
+  "iot_class": "local_push",
+  "requirements": [],
+  "version": "0.1"
+}

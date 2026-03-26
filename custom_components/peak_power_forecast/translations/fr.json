@@ -1,0 +1,96 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Peak Power Forecast",
+        "description": "Sélectionnez un capteur d’appel de puissance moyenne actuelle qui suit la consommation de pointe quart-horaire. Sinon, si vous ne disposez pas de ce type de capteur, vous pouvez sélectionner un capteur d’énergie cumulée (Wh ou kWh). L’intégration dérivera alors la demande moyenne du quart d’heure à partir de bornes quart-horaires fixes.",
+        "data": {
+          "source_sensor": "Sélectionner le capteur d’entrée",
+          "setup_path": "Mode d’entrée"
+        }
+      }
+    },
+    "error": {
+      "sensor_not_found": "Le capteur sélectionné est introuvable.",
+      "sensor_not_numeric": "Le capteur sélectionné n’a pas d’état numérique pour le moment.",
+      "source_sensor_required": "Sélectionnez un capteur d’entrée.",
+      "cumulative_sensor_required": "Sélectionnez un capteur d’entrée pour le mode de secours.",
+      "cumulative_sensor_not_found": "Le capteur d’énergie cumulée est introuvable.",
+      "cumulative_sensor_not_numeric": "Le capteur d’énergie cumulée n’a pas d’état numérique pour le moment.",
+      "cumulative_sensor_unsupported_unit": "Unité non prise en charge. Utilisez un capteur d’énergie cumulée en Wh ou kWh.",
+      "cumulative_sensor_wrong_device_class": "Ce capteur devrait utiliser la classe d’appareil energy.",
+      "cumulative_sensor_wrong_state_class": "Ce capteur devrait utiliser la classe d’état total ou total_increasing."
+    },
+    "abort": {
+      "already_configured": "Ce capteur est déjà configuré."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Options Peak Power Forecast",
+        "description": "Ajustez les capteurs, le comportement de prévision, les seuils kW avertissement/critique (et éventuellement le pic mensuel pour un seuil critique dynamique), ainsi que le délai d’obsolescence.",
+        "data": {
+          "input_mode": "Mode d’entrée",
+          "source_sensor": "Sélectionner le capteur d’entrée",
+          "monthly_peak_sensor": "Capteur du pic mensuel (facultatif)",
+          "forecast_mode": "Mode de prévision",
+          "warning_level_kw": "Niveau d’avertissement",
+          "critical_level_kw": "Niveau critique",
+          "stale_telemetry_timeout": "Délai d’expiration des données obsolètes"
+        }
+      }
+    },
+    "error": {
+      "sensor_not_found": "Le capteur sélectionné est introuvable.",
+      "sensor_not_numeric": "Le capteur sélectionné n’a pas d’état numérique pour le moment.",
+      "invalid_stale_timeout": "Le délai doit être compris entre 5 et 600 secondes.",
+      "duplicate_source": "Une autre entrée Peak Power Forecast utilise déjà ce capteur source.",
+      "monthly_sensor_not_found": "Le capteur du pic mensuel est introuvable.",
+      "monthly_sensor_not_numeric": "Le capteur du pic mensuel n’a pas d’état numérique pour le moment.",
+      "invalid_threshold": "Les niveaux d’avertissement et critique doivent être positifs.",
+      "warning_not_below_critical": "Le niveau d’avertissement doit être inférieur au niveau critique.",
+      "source_sensor_required": "Sélectionnez un capteur d’entrée pour le mode direct.",
+      "cumulative_sensor_required": "Sélectionnez un capteur d’entrée pour le mode de secours.",
+      "cumulative_sensor_not_found": "Le capteur d’énergie cumulée est introuvable.",
+      "cumulative_sensor_not_numeric": "Le capteur d’énergie cumulée n’a pas d’état numérique pour le moment.",
+      "cumulative_sensor_unsupported_unit": "Unité non prise en charge. Utilisez Wh ou kWh.",
+      "cumulative_sensor_wrong_device_class": "Le capteur cumulé devrait utiliser la classe d’appareil energy.",
+      "cumulative_sensor_wrong_state_class": "Le capteur cumulé devrait utiliser la classe d’état total ou total_increasing."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "peak_power_forecast": {
+        "name": "Peak Power Forecast"
+      },
+      "peak_power_forecast_status": {
+        "name": "Peak Power Forecast — état"
+      },
+      "peak_power_forecast_color": {
+        "name": "Peak Power Forecast — couleur"
+      }
+    }
+  },
+  "selector": {
+    "setup_path": {
+      "options": {
+        "direct": "Utiliser un capteur de puissance moyenne actuelle",
+        "cumulative_energy": "Utiliser un capteur d’énergie cumulée"
+      }
+    },
+    "input_mode": {
+      "options": {
+        "direct": "Mode direct (capteur de puissance moyenne actuelle)",
+        "cumulative_energy": "Mode de secours (capteur d’énergie cumulée)"
+      }
+    },
+    "forecast_mode": {
+      "options": {
+        "conservative": "Prudent",
+        "balanced": "Équilibré",
+        "responsive": "Réactif"
+      }
+    }
+  }
+}
