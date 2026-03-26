@@ -51,7 +51,7 @@ This integration also has a companion ESPHome project: an unobtrusive LED indica
 
 - **Current average demand sensor (preferred mode)**  
   The selected sensor already represents the quarter-average demand so far in `kW`, and resets each quarter. 
-  This sensor should be included in most DSMR P1 integrations (e.g. in HomeWizard it's called `sensor.p1_meter_gemiddeld_verbruik`).
+  This sensor should be included in most DSMR P1 integrations (e.g. in HomeWizard it's called `sensor.p1_meter_gemiddeld_verbruik`, in the [Plan-d dongle](https://github.com/plan-d-io/P1-dongle) it's `sensor.current_average_demand`).
 
 - **Cumulative energy sensor (fallback method)**  
   The selected sensor is cumulative (`Wh`/`kWh`).  
