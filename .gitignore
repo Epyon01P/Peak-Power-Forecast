@@ -2,3 +2,20 @@
 dev_guide.md
 peak_power_forecast_spec.md
 Peak-forecast.code-workspace
+
+# Python
+.pytest_cache
+__pycache__/
+*.pyc
+
+# Environment
+.venv/
+env/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Logs / temp
+*.log
