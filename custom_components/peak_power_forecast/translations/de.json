@@ -8,6 +8,14 @@
           "source_sensor": "Eingabesensor auswählen",
           "setup_path": "Eingabemodus"
         }
+      },
+      "setup_limits": {
+        "title": "Prognosegrenzen festlegen",
+        "description": "Wählen Sie die Warn- und Kritisch-Schwellen für Status- und Farbausgabe.",
+        "data": {
+          "warning_level_kw": "Warnschwelle",
+          "critical_level_kw": "Kritische Schwelle"
+        }
       }
     },
     "error": {

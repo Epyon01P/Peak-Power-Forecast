@@ -8,6 +8,14 @@
           "source_sensor": "Sélectionner le capteur d’entrée",
           "setup_path": "Mode d’entrée"
         }
+      },
+      "setup_limits": {
+        "title": "Définir les limites de prévision",
+        "description": "Choisissez les seuils d’avertissement et critique utilisés pour l’état et la couleur.",
+        "data": {
+          "warning_level_kw": "Niveau d’avertissement",
+          "critical_level_kw": "Niveau critique"
+        }
       }
     },
     "error": {

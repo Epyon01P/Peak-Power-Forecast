@@ -8,6 +8,14 @@
           "source_sensor": "Selecteer invoersensor",
           "setup_path": "Invoermodus"
         }
+      },
+      "setup_limits": {
+        "title": "Stel prognoselimieten in",
+        "description": "Kies de waarschuwings- en kritieke niveaus voor status en kleuruitvoer.",
+        "data": {
+          "warning_level_kw": "Waarschuwingsniveau",
+          "critical_level_kw": "Kritiek niveau"
+        }
       }
     },
     "error": {
