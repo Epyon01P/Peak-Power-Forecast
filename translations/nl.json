@@ -1,0 +1,100 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Peak Power Forecast",
+        "description": "Selecteer een sensor voor het huidige gemiddelde vermogen, die het kwartiergemiddelde piekvermogen bijhoudt. Als je dit type sensor niet hebt, kun je een cumulatieve energiesensor (Wh of kWh) selecteren. De integratie berekent dan het huidige kwartiergemiddelde met vaste kwartiergrenzen op basis van de klok.",
+        "data": {
+          "source_sensor": "Selecteer invoersensor",
+          "setup_path": "Invoermodus"
+        }
+      }
+    },
+    "error": {
+      "sensor_not_found": "De gekozen sensor is niet gevonden.",
+      "sensor_not_numeric": "De gekozen sensor heeft momenteel geen numerieke status.",
+      "source_sensor_required": "Selecteer een invoersensor.",
+      "cumulative_sensor_required": "Selecteer een invoersensor voor de fallbackmodus.",
+      "cumulative_sensor_not_found": "De cumulatieve energiesensor is niet gevonden.",
+      "cumulative_sensor_not_numeric": "De cumulatieve energiesensor heeft momenteel geen numerieke status.",
+      "cumulative_sensor_unsupported_unit": "Niet-ondersteunde eenheid. Gebruik een cumulatieve energiesensor met eenheid Wh of kWh.",
+      "cumulative_sensor_wrong_device_class": "Deze sensor hoort device class energy te gebruiken.",
+      "cumulative_sensor_wrong_state_class": "Deze sensor hoort state class total of total_increasing te gebruiken."
+    },
+    "abort": {
+      "already_configured": "Deze sensor is al geconfigureerd."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opties Peak Power Forecast",
+        "description": "Pas sensoren, prognosegedrag, waarschuwing-/kritiekdrempels in kW (en optioneel maandpiek voor dynamische kritieke grens) en de stale time-out aan.",
+        "data": {
+          "input_mode": "Invoermodus",
+          "source_sensor": "Selecteer invoersensor",
+          "monthly_peak_sensor": "Sensor maandpiek (optioneel)",
+          "forecast_mode": "Prognosemodus",
+          "warning_level_kw": "Waarschuwingsniveau",
+          "critical_level_kw": "Kritiek niveau",
+          "stale_telemetry_timeout": "Time-out verouderde telemetrie"
+        }
+      }
+    },
+    "error": {
+      "sensor_not_found": "De gekozen sensor is niet gevonden.",
+      "sensor_not_numeric": "De gekozen sensor heeft nu geen numerieke status.",
+      "invalid_stale_timeout": "Time-out moet tussen 5 en 600 seconden liggen.",
+      "duplicate_source": "Een andere Peak Power Forecast-invoer gebruikt deze bronsensor al.",
+      "monthly_sensor_not_found": "De sensor voor de maandpiek is niet gevonden.",
+      "monthly_sensor_not_numeric": "De sensor voor de maandpiek heeft nu geen numerieke status.",
+      "invalid_threshold": "Waarschuwings- en kritische niveaus moeten positief zijn.",
+      "warning_not_below_critical": "Het waarschuwingsniveau moet lager zijn dan het kritische niveau.",
+      "source_sensor_required": "Selecteer een invoersensor voor de directe modus.",
+      "cumulative_sensor_required": "Selecteer een invoersensor voor de fallbackmodus.",
+      "cumulative_sensor_not_found": "De cumulatieve energiesensor is niet gevonden.",
+      "cumulative_sensor_not_numeric": "De cumulatieve energiesensor heeft momenteel geen numerieke status.",
+      "cumulative_sensor_unsupported_unit": "Niet-ondersteunde eenheid. Gebruik Wh of kWh.",
+      "cumulative_sensor_wrong_device_class": "De cumulatieve sensor hoort device class energy te gebruiken.",
+      "cumulative_sensor_wrong_state_class": "De cumulatieve sensor hoort state class total of total_increasing te gebruiken."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "peak_power_forecast": {
+        "name": "Peak Power Forecast"
+      },
+      "peak_power_forecast_status": {
+        "name": "Peak Power Forecast status"
+      },
+      "peak_power_forecast_color": {
+        "name": "Peak Power Forecast kleur"
+      },
+      "peak_power_forecast_projected": {
+        "name": "Peak Power Forecast geëxtrapoleerd",
+        "description": "Geëxtrapoleerd kW aan het einde van het kwartier op basis van het huidige kwartiergemiddelde (begrensd); de hoofdprognose mengt dit met het vorige kwartier."
+      }
+    }
+  },
+  "selector": {
+    "setup_path": {
+      "options": {
+        "direct": "Gebruik sensor voor huidig gemiddeld vermogen",
+        "cumulative_energy": "Gebruik cumulatieve energiesensor"
+      }
+    },
+    "input_mode": {
+      "options": {
+        "direct": "Directe modus (sensor huidig gemiddeld vermogen)",
+        "cumulative_energy": "Fallbackmodus (cumulatieve energiesensor)"
+      }
+    },
+    "forecast_mode": {
+      "options": {
+        "conservative": "Voorzichtig",
+        "balanced": "Evenwichtig",
+        "responsive": "Reactief"
+      }
+    }
+  }
+}
