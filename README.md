@@ -10,7 +10,7 @@ Instead of relying on a monotonically increasing peak consumption sensor that re
 
 This gives users immediate insight into whether there is still “room” to turn on additional devices, or whether they should reduce consumption to avoid a high peak at the end of the current quarter hour.
 
-This integration also has a companion ESPHome project: an unobtrusive LED indicator that visualizes the forecast using a color gradient (green → orange → red).
+This integration also has a companion ESPHome project: an unobtrusive LED indicator that visualizes the forecast using a color gradient (green → amber → red).
 
 ## Requirements
 
@@ -22,9 +22,9 @@ This integration also has a companion ESPHome project: an unobtrusive LED indica
 
 ## Features
 
-- Peak power forecast
+- Peak power forecast and projected end-of-quarter value
 - Simple status indication (`Good`, `Warning`, `Critical`)
-- Color indicator with smooth gradient for dashboards and LEDs
+- Color indicator with smooth two-step gradient for dashboards and LEDs
 - Forecast mode tuning
 - Configurable warning/critical thresholds
 - Configurable stale telemetry timeout
@@ -72,15 +72,15 @@ This integration also has a companion ESPHome project: an unobtrusive LED indica
   Threshold (kW) where forecast status changes to `Critical`.
 
 - **Stale telemetry timeout**  
-  Number of seconds without fresh sensor updates before the integration holds the last good forecast value.
+  Number of seconds without fresh sensor updates before the integration switches to resilient stale handling.
 
 ## Forecast Method (How It Works)
 
 0. Normalizes input to an internal effective current average demand signal (only when using the fallback method).
-1. Tracks previous quarter max consumption.
-2. Computes projected end value of current quarter based on current average demand.
-3. Blends projected value with previous quarter final value using forecast-mode confidence ramp.
-4. Holds last good forecast during stale telemetry periods.
+1. Tracks previous quarter final value and current quarter behavior.
+2. Computes projected end value of current quarter from current average demand plus short-term trend extrapolation.
+3. Blends projected value with previous quarter final value using the forecast-mode confidence ramp.
+4. Applies resilient stale handling during telemetry gaps.
 
 ## Status and Color Behavior
 
@@ -90,14 +90,17 @@ This integration also has a companion ESPHome project: an unobtrusive LED indica
 
 Color sensor output (for LED companion button):
 - Green edge: `#39FF14`
+- Warning edge: `#FFC400`
 - Red edge: `#FF4B33`
-- Smooth gradient between warning and critical
+- Linear RGB interpolation in two ranges: green → warning, then warning → red
 
 ## Important note on timing (DSMR mode)
 
 When using a **current average demand sensor**, quarter-hour boundaries are determined by the **digital meter itself**, not by Home Assistant.
 
 This means the reset moments (every ~15 minutes) may be slightly out of sync with the Home Assistant system clock. As a result, you may occasionally observe small timing offsets in graphs or forecast behavior around quarter boundaries.
+
+The integration also guards against false quarter resets caused by regular intra-quarter decreases (for example during net injection) by only treating hard near-zero drops as reset signals.
 
 This is expected behavior and does not affect the correctness of the forecast.
 
@@ -106,7 +109,7 @@ This is expected behavior and does not affect the correctness of the forecast.
 | Entity id | Description |
 | --------- | ----------- |
 | `sensor.peak_power_forecast` | Forecast of final quarter-hour average demand (kW). |
-| `sensor.peak_power_forecast_projected` | Projected forecast based on extrapolation of current average demand. |
+| `sensor.peak_power_forecast_projected` | Raw projected end-of-quarter value from extrapolation (before confidence blending). |
 | `sensor.peak_power_forecast_status` | `Good` / `Warning` / `Critical`. |
 | `sensor.peak_power_forecast_color` | Hex color output for dashboards/LED integrations. |
 
