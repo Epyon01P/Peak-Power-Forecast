@@ -6,11 +6,11 @@
 
 Custom Home Assistant integration to forecast quarter-hourly peak power consumption based on DSMR (P1) digital meter data. It helps manage capacity tariffs (e.g. in Flanders) and avoid high peak charges.
 
-Instead of relying on a monotonically increasing peak consumption sensor that resets every 15 minutes (creating a sawtooth profile), this integration provides a sensor that continuously forecasts the final peak power value of the current quarter hour. It does so based on previous consumption patterns and extrapolation of current usage.
+Instead of extrapolating a monotonically increasing peak consumption sensor that resets every 15 minutes (creating a sawtooth profile), this integration provides a sensor that continuously forecasts the final peak power value of the current quarter hour. It does so based on previous consumption patterns and extrapolation of current usage, gradually giving more confidence to the latter as the quarter hour passes on.
 
-This gives users immediate insight into whether there is still “room” to turn on additional devices, or whether they should reduce consumption to avoid a high peak at the end of the current quarter hour.
+The peak power forecast is both given as a numeric value and as a color gradient, going from green to red. This gives users immediate insight into whether there is still “room” to turn on additional devices, or whether they should reduce consumption to avoid a high peak at the end of the current quarter hour.
 
-This integration also has a companion ESPHome project: an unobtrusive LED indicator that visualizes the forecast using a color gradient (green → amber → red).
+This integration also has a companion ESPHome project: an unobtrusive LED indicator that physically shows the forecast color gradient in realtime (green → amber → red).
 
 ## Requirements
 
@@ -99,8 +99,6 @@ Color sensor output (for LED companion button):
 When using a **current average demand sensor**, quarter-hour boundaries are determined by the **digital meter itself**, not by Home Assistant.
 
 This means the reset moments (every ~15 minutes) may be slightly out of sync with the Home Assistant system clock. As a result, you may occasionally observe small timing offsets in graphs or forecast behavior around quarter boundaries.
-
-The integration also guards against false quarter resets caused by regular intra-quarter decreases (for example during net injection) by only treating hard near-zero drops as reset signals.
 
 This is expected behavior and does not affect the correctness of the forecast.
 
