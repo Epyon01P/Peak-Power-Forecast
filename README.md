@@ -15,9 +15,9 @@ This integration also has a companion ESPHome project: an unobtrusive LED indica
 ## Requirements
 
 - Home Assistant Core `2024.6.0` or later
-- HACS installed (for HACS install path)
+- HACS installed
 - One input sensor:
-  - **Current average demand sensor** with unit `kW` (preferred mode), or
+  - **Current average demand sensor** with unit `kW` or `W` (preferred mode), or
   - **Cumulative energy sensor** with unit `Wh` or `kWh` (fallback mode)
 
 ## Features
