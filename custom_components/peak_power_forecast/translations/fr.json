@@ -3,68 +3,70 @@
     "step": {
       "user": {
         "title": "Peak Power Forecast",
-        "description": "Sélectionnez un capteur d’appel de puissance moyenne actuelle qui suit la consommation de pointe quart-horaire. Sinon, si vous ne disposez pas de ce type de capteur, vous pouvez sélectionner un capteur d’énergie cumulée (Wh ou kWh). L’intégration dérivera alors la demande moyenne du quart d’heure à partir de bornes quart-horaires fixes.",
+        "description": "SÃ©lectionnez un capteur dâ€™appel de puissance moyenne actuelle qui suit la consommation de pointe quart-horaire. Sinon, si vous ne disposez pas de ce type de capteur, vous pouvez sÃ©lectionner un capteur dâ€™Ã©nergie cumulÃ©e (Wh ou kWh). Lâ€™intÃ©gration dÃ©rivera alors la demande moyenne du quart dâ€™heure Ã  partir de bornes quart-horaires fixes.",
         "data": {
-          "source_sensor": "Sélectionner le capteur d’entrée",
-          "setup_path": "Mode d’entrée"
+          "source_sensor": "SÃ©lectionner le capteur dâ€™entrÃ©e",
+          "setup_path": "Mode dâ€™entrÃ©e"
         }
       },
       "setup_limits": {
-        "title": "Définir les limites de prévision",
-        "description": "Choisissez les seuils d’avertissement et critique utilisés pour l’état et la couleur.",
+        "title": "DÃ©finir les limites de prÃ©vision",
+        "description": "Choisissez les seuils dâ€™avertissement et critique utilisÃ©s pour lâ€™Ã©tat et la couleur.",
         "data": {
-          "warning_level_kw": "Niveau d’avertissement",
+          "warning_level_kw": "Niveau dâ€™avertissement",
           "critical_level_kw": "Niveau critique"
         }
       }
     },
     "error": {
-      "sensor_not_found": "Le capteur sélectionné est introuvable.",
-      "sensor_not_numeric": "Le capteur sélectionné n’a pas d’état numérique pour le moment.",
-      "source_sensor_required": "Sélectionnez un capteur d’entrée.",
-      "cumulative_sensor_required": "Sélectionnez un capteur d’entrée pour le mode de secours.",
-      "cumulative_sensor_not_found": "Le capteur d’énergie cumulée est introuvable.",
-      "cumulative_sensor_not_numeric": "Le capteur d’énergie cumulée n’a pas d’état numérique pour le moment.",
-      "cumulative_sensor_unsupported_unit": "Unité non prise en charge. Utilisez un capteur d’énergie cumulée en Wh ou kWh.",
-      "cumulative_sensor_wrong_device_class": "Ce capteur devrait utiliser la classe d’appareil energy.",
-      "cumulative_sensor_wrong_state_class": "Ce capteur devrait utiliser la classe d’état total ou total_increasing."
+      "sensor_not_found": "Le capteur sÃ©lectionnÃ© est introuvable.",
+      "sensor_not_numeric": "Le capteur sÃ©lectionnÃ© nâ€™a pas dâ€™Ã©tat numÃ©rique pour le moment.",
+      "source_sensor_required": "SÃ©lectionnez un capteur dâ€™entrÃ©e.",
+      "cumulative_sensor_required": "SÃ©lectionnez un capteur dâ€™entrÃ©e pour le mode de secours.",
+      "cumulative_sensor_not_found": "Le capteur dâ€™Ã©nergie cumulÃ©e est introuvable.",
+      "cumulative_sensor_not_numeric": "Le capteur dâ€™Ã©nergie cumulÃ©e nâ€™a pas dâ€™Ã©tat numÃ©rique pour le moment.",
+      "cumulative_sensor_unsupported_unit": "UnitÃ© non prise en charge. Utilisez un capteur dâ€™Ã©nergie cumulÃ©e en Wh ou kWh.",
+      "cumulative_sensor_wrong_device_class": "Ce capteur devrait utiliser la classe dâ€™appareil energy.",
+      "cumulative_sensor_wrong_state_class": "Ce capteur devrait utiliser la classe dâ€™Ã©tat total ou total_increasing.",
+      "sensor_unsupported_power_unit": "Unité non prise en charge. Le mode direct nécessite W ou kW."
     },
     "abort": {
-      "already_configured": "Ce capteur est déjà configuré."
+      "already_configured": "Ce capteur est dÃ©jÃ  configurÃ©."
     }
   },
   "options": {
     "step": {
       "init": {
         "title": "Options Peak Power Forecast",
-        "description": "Ajustez les capteurs, le comportement de prévision, les seuils kW avertissement/critique (et éventuellement le pic mensuel pour un seuil critique dynamique), ainsi que le délai d’obsolescence.",
+        "description": "Ajustez les capteurs, le comportement de prÃ©vision, les seuils kW avertissement/critique (et Ã©ventuellement le pic mensuel pour un seuil critique dynamique), ainsi que le dÃ©lai dâ€™obsolescence.",
         "data": {
-          "input_mode": "Mode d’entrée",
-          "source_sensor": "Sélectionner le capteur d’entrée",
+          "input_mode": "Mode dâ€™entrÃ©e",
+          "source_sensor": "SÃ©lectionner le capteur dâ€™entrÃ©e",
           "monthly_peak_sensor": "Capteur du pic mensuel (facultatif)",
-          "forecast_mode": "Mode de prévision",
-          "warning_level_kw": "Niveau d’avertissement",
+          "forecast_mode": "Mode de prÃ©vision",
+          "warning_level_kw": "Niveau dâ€™avertissement",
           "critical_level_kw": "Niveau critique",
-          "stale_telemetry_timeout": "Délai d’expiration des données obsolètes"
+          "stale_telemetry_timeout": "DÃ©lai dâ€™expiration des donnÃ©es obsolÃ¨tes"
         }
       }
     },
     "error": {
-      "sensor_not_found": "Le capteur sélectionné est introuvable.",
-      "sensor_not_numeric": "Le capteur sélectionné n’a pas d’état numérique pour le moment.",
-      "invalid_stale_timeout": "Le délai doit être compris entre 5 et 600 secondes.",
-      "duplicate_source": "Une autre entrée Peak Power Forecast utilise déjà ce capteur source.",
+      "sensor_not_found": "Le capteur sÃ©lectionnÃ© est introuvable.",
+      "sensor_not_numeric": "Le capteur sÃ©lectionnÃ© nâ€™a pas dâ€™Ã©tat numÃ©rique pour le moment.",
+      "invalid_stale_timeout": "Le dÃ©lai doit Ãªtre compris entre 5 et 600 secondes.",
+      "duplicate_source": "Une autre entrÃ©e Peak Power Forecast utilise dÃ©jÃ  ce capteur source.",
       "monthly_sensor_not_found": "Le capteur du pic mensuel est introuvable.",
-      "monthly_sensor_not_numeric": "Le capteur du pic mensuel n’a pas d’état numérique pour le moment.",
-      "invalid_threshold": "Les niveaux d’avertissement et critique doivent être positifs.",
-      "warning_not_below_critical": "Le niveau d’avertissement doit être inférieur au niveau critique.",
-      "source_sensor_required": "Sélectionnez un capteur d’entrée pour le mode direct.",
-      "cumulative_sensor_required": "Sélectionnez un capteur d’entrée pour le mode de secours.",
-      "cumulative_sensor_not_found": "Le capteur d’énergie cumulée est introuvable.",
-      "cumulative_sensor_not_numeric": "Le capteur d’énergie cumulée n’a pas d’état numérique pour le moment.",
-      "cumulative_sensor_unsupported_unit": "Unité non prise en charge. Utilisez Wh ou kWh.",
-      "cumulative_sensor_wrong_device_class": "Le capteur cumulé devrait utiliser la classe d’appareil energy.",
-      "cumulative_sensor_wrong_state_class": "Le capteur cumulé devrait utiliser la classe d’état total ou total_increasing."
+      "monthly_sensor_not_numeric": "Le capteur du pic mensuel nâ€™a pas dâ€™Ã©tat numÃ©rique pour le moment.",
+      "invalid_threshold": "Les niveaux dâ€™avertissement et critique doivent Ãªtre positifs.",
+      "warning_not_below_critical": "Le niveau dâ€™avertissement doit Ãªtre infÃ©rieur au niveau critique.",
+      "source_sensor_required": "SÃ©lectionnez un capteur dâ€™entrÃ©e pour le mode direct.",
+      "cumulative_sensor_required": "SÃ©lectionnez un capteur dâ€™entrÃ©e pour le mode de secours.",
+      "cumulative_sensor_not_found": "Le capteur dâ€™Ã©nergie cumulÃ©e est introuvable.",
+      "cumulative_sensor_not_numeric": "Le capteur dâ€™Ã©nergie cumulÃ©e nâ€™a pas dâ€™Ã©tat numÃ©rique pour le moment.",
+      "cumulative_sensor_unsupported_unit": "UnitÃ© non prise en charge. Utilisez Wh ou kWh.",
+      "cumulative_sensor_wrong_device_class": "Le capteur cumulÃ© devrait utiliser la classe dâ€™appareil energy.",
+      "cumulative_sensor_wrong_state_class": "Le capteur cumulÃ© devrait utiliser la classe dâ€™Ã©tat total ou total_increasing.",
+      "sensor_unsupported_power_unit": "Unité non prise en charge. Le mode direct nécessite W ou kW."
     }
   },
   "entity": {
@@ -73,14 +75,14 @@
         "name": "Peak Power Forecast"
       },
       "peak_power_forecast_status": {
-        "name": "Peak Power Forecast — état"
+        "name": "Peak Power Forecast â€” Ã©tat"
       },
       "peak_power_forecast_color": {
-        "name": "Peak Power Forecast — couleur"
+        "name": "Peak Power Forecast â€” couleur"
       },
       "peak_power_forecast_projected": {
-        "name": "Peak Power Forecast — extrapolé",
-        "description": "Puissance kW extrapolée en fin de quart d’heure à partir de la moyenne courante du quart (plafonnée) ; la prévision principale fusionne cette valeur avec le quart précédent."
+        "name": "Peak Power Forecast â€” extrapolÃ©",
+        "description": "Puissance kW extrapolÃ©e en fin de quart dâ€™heure Ã  partir de la moyenne courante du quart (plafonnÃ©e) ; la prÃ©vision principale fusionne cette valeur avec le quart prÃ©cÃ©dent."
       }
     }
   },
@@ -88,20 +90,20 @@
     "setup_path": {
       "options": {
         "direct": "Utiliser un capteur de puissance moyenne actuelle",
-        "cumulative_energy": "Utiliser un capteur d’énergie cumulée"
+        "cumulative_energy": "Utiliser un capteur dâ€™Ã©nergie cumulÃ©e"
       }
     },
     "input_mode": {
       "options": {
         "direct": "Mode direct (capteur de puissance moyenne actuelle)",
-        "cumulative_energy": "Mode de secours (capteur d’énergie cumulée)"
+        "cumulative_energy": "Mode de secours (capteur dâ€™Ã©nergie cumulÃ©e)"
       }
     },
     "forecast_mode": {
       "options": {
         "conservative": "Prudent",
-        "balanced": "Équilibré",
-        "responsive": "Réactif"
+        "balanced": "Ã‰quilibrÃ©",
+        "responsive": "RÃ©actif"
       }
     }
   }

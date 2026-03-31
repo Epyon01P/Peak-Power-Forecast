@@ -27,7 +27,8 @@
       "cumulative_sensor_not_numeric": "De cumulatieve energiesensor heeft momenteel geen numerieke status.",
       "cumulative_sensor_unsupported_unit": "Niet-ondersteunde eenheid. Gebruik een cumulatieve energiesensor met eenheid Wh of kWh.",
       "cumulative_sensor_wrong_device_class": "Deze sensor hoort device class energy te gebruiken.",
-      "cumulative_sensor_wrong_state_class": "Deze sensor hoort state class total of total_increasing te gebruiken."
+      "cumulative_sensor_wrong_state_class": "Deze sensor hoort state class total of total_increasing te gebruiken.",
+      "sensor_unsupported_power_unit": "Niet-ondersteunde eenheid. Directe modus vereist W of kW."
     },
     "abort": {
       "already_configured": "Deze sensor is al geconfigureerd."
@@ -64,7 +65,8 @@
       "cumulative_sensor_not_numeric": "De cumulatieve energiesensor heeft momenteel geen numerieke status.",
       "cumulative_sensor_unsupported_unit": "Niet-ondersteunde eenheid. Gebruik Wh of kWh.",
       "cumulative_sensor_wrong_device_class": "De cumulatieve sensor hoort device class energy te gebruiken.",
-      "cumulative_sensor_wrong_state_class": "De cumulatieve sensor hoort state class total of total_increasing te gebruiken."
+      "cumulative_sensor_wrong_state_class": "De cumulatieve sensor hoort state class total of total_increasing te gebruiken.",
+      "sensor_unsupported_power_unit": "Niet-ondersteunde eenheid. Directe modus vereist W of kW."
     }
   },
   "entity": {

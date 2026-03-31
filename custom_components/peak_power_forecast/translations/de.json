@@ -3,15 +3,15 @@
     "step": {
       "user": {
         "title": "Peak Power Forecast",
-        "description": "Wählen Sie einen Sensor für die aktuelle Durchschnittsleistung, der den viertelstündlichen Spitzenverbrauch abbildet. Wenn Sie diesen Sensortyp nicht haben, können Sie alternativ einen kumulativen Energiesensor (Wh oder kWh) auswählen. Die Integration leitet dann die aktuelle Viertelstunden-Durchschnittsleistung anhand fester Uhrzeit-Quartalsgrenzen ab.",
+        "description": "WÃ¤hlen Sie einen Sensor fÃ¼r die aktuelle Durchschnittsleistung, der den viertelstÃ¼ndlichen Spitzenverbrauch abbildet. Wenn Sie diesen Sensortyp nicht haben, kÃ¶nnen Sie alternativ einen kumulativen Energiesensor (Wh oder kWh) auswÃ¤hlen. Die Integration leitet dann die aktuelle Viertelstunden-Durchschnittsleistung anhand fester Uhrzeit-Quartalsgrenzen ab.",
         "data": {
-          "source_sensor": "Eingabesensor auswählen",
+          "source_sensor": "Eingabesensor auswÃ¤hlen",
           "setup_path": "Eingabemodus"
         }
       },
       "setup_limits": {
         "title": "Prognosegrenzen festlegen",
-        "description": "Wählen Sie die Warn- und Kritisch-Schwellen für Status- und Farbausgabe.",
+        "description": "WÃ¤hlen Sie die Warn- und Kritisch-Schwellen fÃ¼r Status- und Farbausgabe.",
         "data": {
           "warning_level_kw": "Warnschwelle",
           "critical_level_kw": "Kritische Schwelle"
@@ -19,15 +19,16 @@
       }
     },
     "error": {
-      "sensor_not_found": "Der ausgewählte Sensor wurde nicht gefunden.",
-      "sensor_not_numeric": "Der ausgewählte Sensor hat derzeit keinen numerischen Status.",
-      "source_sensor_required": "Wählen Sie einen Eingabesensor aus.",
-      "cumulative_sensor_required": "Wählen Sie einen Eingabesensor für den Fallback-Modus aus.",
+      "sensor_not_found": "Der ausgewÃ¤hlte Sensor wurde nicht gefunden.",
+      "sensor_not_numeric": "Der ausgewÃ¤hlte Sensor hat derzeit keinen numerischen Status.",
+      "source_sensor_required": "WÃ¤hlen Sie einen Eingabesensor aus.",
+      "cumulative_sensor_required": "WÃ¤hlen Sie einen Eingabesensor fÃ¼r den Fallback-Modus aus.",
       "cumulative_sensor_not_found": "Der kumulative Energiesensor wurde nicht gefunden.",
       "cumulative_sensor_not_numeric": "Der kumulative Energiesensor hat derzeit keinen numerischen Status.",
-      "cumulative_sensor_unsupported_unit": "Nicht unterstützte Einheit. Verwenden Sie einen kumulativen Energiesensor mit Einheit Wh oder kWh.",
-      "cumulative_sensor_wrong_device_class": "Dieser Sensor sollte die Geräteklasse energy verwenden.",
-      "cumulative_sensor_wrong_state_class": "Dieser Sensor sollte die Zustandsklasse total oder total_increasing verwenden."
+      "cumulative_sensor_unsupported_unit": "Nicht unterstÃ¼tzte Einheit. Verwenden Sie einen kumulativen Energiesensor mit Einheit Wh oder kWh.",
+      "cumulative_sensor_wrong_device_class": "Dieser Sensor sollte die GerÃ¤teklasse energy verwenden.",
+      "cumulative_sensor_wrong_state_class": "Dieser Sensor sollte die Zustandsklasse total oder total_increasing verwenden.",
+      "sensor_unsupported_power_unit": "Nicht unterstützte Einheit. Der Direktmodus erfordert W oder kW."
     },
     "abort": {
       "already_configured": "Dieser Sensor ist bereits konfiguriert."
@@ -37,10 +38,10 @@
     "step": {
       "init": {
         "title": "Optionen Peak Power Forecast",
-        "description": "Passen Sie Sensoren, Prognoseverhalten, Warn-/Kritisch-Schwellen in kW (optional mit Monatsspitze für dynamische Kritisch-Schwelle) sowie das Stale-Timeout an.",
+        "description": "Passen Sie Sensoren, Prognoseverhalten, Warn-/Kritisch-Schwellen in kW (optional mit Monatsspitze fÃ¼r dynamische Kritisch-Schwelle) sowie das Stale-Timeout an.",
         "data": {
           "input_mode": "Eingabemodus",
-          "source_sensor": "Eingabesensor auswählen",
+          "source_sensor": "Eingabesensor auswÃ¤hlen",
           "monthly_peak_sensor": "Sensor Monatsspitze (optional)",
           "forecast_mode": "Prognosemodus",
           "warning_level_kw": "Warnschwelle",
@@ -50,21 +51,22 @@
       }
     },
     "error": {
-      "sensor_not_found": "Der ausgewählte Sensor wurde nicht gefunden.",
-      "sensor_not_numeric": "Der ausgewählte Sensor hat derzeit keinen numerischen Status.",
+      "sensor_not_found": "Der ausgewÃ¤hlte Sensor wurde nicht gefunden.",
+      "sensor_not_numeric": "Der ausgewÃ¤hlte Sensor hat derzeit keinen numerischen Status.",
       "invalid_stale_timeout": "Das Timeout muss zwischen 5 und 600 Sekunden liegen.",
       "duplicate_source": "Ein anderer Peak Power Forecast-Eintrag nutzt diesen Quellsensor bereits.",
-      "monthly_sensor_not_found": "Der Sensor für die Monatsspitze wurde nicht gefunden.",
-      "monthly_sensor_not_numeric": "Der Sensor für die Monatsspitze hat derzeit keinen numerischen Status.",
-      "invalid_threshold": "Warn- und kritische Schwellen müssen positive Zahlen sein.",
+      "monthly_sensor_not_found": "Der Sensor fÃ¼r die Monatsspitze wurde nicht gefunden.",
+      "monthly_sensor_not_numeric": "Der Sensor fÃ¼r die Monatsspitze hat derzeit keinen numerischen Status.",
+      "invalid_threshold": "Warn- und kritische Schwellen mÃ¼ssen positive Zahlen sein.",
       "warning_not_below_critical": "Die Warnschwelle muss unter der kritischen Schwelle liegen.",
-      "source_sensor_required": "Wählen Sie einen Eingabesensor für den Direktmodus aus.",
-      "cumulative_sensor_required": "Wählen Sie einen Eingabesensor für den Fallback-Modus aus.",
+      "source_sensor_required": "WÃ¤hlen Sie einen Eingabesensor fÃ¼r den Direktmodus aus.",
+      "cumulative_sensor_required": "WÃ¤hlen Sie einen Eingabesensor fÃ¼r den Fallback-Modus aus.",
       "cumulative_sensor_not_found": "Der kumulative Energiesensor wurde nicht gefunden.",
       "cumulative_sensor_not_numeric": "Der kumulative Energiesensor hat derzeit keinen numerischen Status.",
-      "cumulative_sensor_unsupported_unit": "Nicht unterstützte Einheit. Verwenden Sie Wh oder kWh.",
-      "cumulative_sensor_wrong_device_class": "Der kumulative Sensor sollte die Geräteklasse energy verwenden.",
-      "cumulative_sensor_wrong_state_class": "Der kumulative Sensor sollte die Zustandsklasse total oder total_increasing verwenden."
+      "cumulative_sensor_unsupported_unit": "Nicht unterstÃ¼tzte Einheit. Verwenden Sie Wh oder kWh.",
+      "cumulative_sensor_wrong_device_class": "Der kumulative Sensor sollte die GerÃ¤teklasse energy verwenden.",
+      "cumulative_sensor_wrong_state_class": "Der kumulative Sensor sollte die Zustandsklasse total oder total_increasing verwenden.",
+      "sensor_unsupported_power_unit": "Nicht unterstützte Einheit. Der Direktmodus erfordert W oder kW."
     }
   },
   "entity": {
@@ -87,13 +89,13 @@
   "selector": {
     "setup_path": {
       "options": {
-        "direct": "Sensor für aktuelle Durchschnittsleistung verwenden",
+        "direct": "Sensor fÃ¼r aktuelle Durchschnittsleistung verwenden",
         "cumulative_energy": "Kumulativen Energiesensor verwenden"
       }
     },
     "input_mode": {
       "options": {
-        "direct": "Direktmodus (Sensor für aktuelle Durchschnittsleistung)",
+        "direct": "Direktmodus (Sensor fÃ¼r aktuelle Durchschnittsleistung)",
         "cumulative_energy": "Fallback-Modus (kumulativer Energiesensor)"
       }
     },

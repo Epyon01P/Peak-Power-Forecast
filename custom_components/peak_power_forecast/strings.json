@@ -21,6 +21,7 @@
     "error": {
       "sensor_not_found": "The selected sensor was not found.",
       "sensor_not_numeric": "The selected sensor does not currently have a numeric state.",
+      "sensor_unsupported_power_unit": "Unsupported unit. Direct mode source sensor must use W or kW.",
       "source_sensor_required": "Select an input sensor.",
       "cumulative_sensor_required": "Select an input sensor for fallback mode.",
       "cumulative_sensor_not_found": "The cumulative energy sensor was not found.",
@@ -51,6 +52,7 @@
     "error": {
       "sensor_not_found": "The selected sensor was not found.",
       "sensor_not_numeric": "The selected sensor does not currently have a numeric state.",
+      "sensor_unsupported_power_unit": "Unsupported unit. Direct mode source sensor must use W or kW.",
       "invalid_stale_timeout": "Stale timeout must be between 5 and 600 seconds.",
       "duplicate_source": "Another Peak Power Forecast entry already uses this source sensor.",
       "monthly_sensor_not_found": "The monthly peak sensor was not found.",

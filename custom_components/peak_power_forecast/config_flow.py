@@ -34,6 +34,8 @@ from .const import (
     FORECAST_MODE_RESPONSIVE,
     INPUT_MODE_CUMULATIVE,
     INPUT_MODE_DIRECT,
+    POWER_UNIT_KW,
+    POWER_UNIT_W,
 )
 
 
@@ -94,7 +96,7 @@ def _normalize_entity_id(value: Any) -> str:
 def _validate_numeric_sensor(
     hass, entity_id: str
 ) -> str | None:
-    """Validate that an entity exists and has a numeric state."""
+    """Validate direct power sensor requirements."""
     state = hass.states.get(entity_id)
     if state is None:
         return "sensor_not_found"
@@ -102,6 +104,9 @@ def _validate_numeric_sensor(
         float(state.state)
     except ValueError:
         return "sensor_not_numeric"
+    unit = state.attributes.get(ATTR_UNIT_OF_MEASUREMENT)
+    if unit is not None and unit not in {POWER_UNIT_W, POWER_UNIT_KW}:
+        return "sensor_unsupported_power_unit"
     return None
 
 

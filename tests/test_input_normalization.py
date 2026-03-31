@@ -6,6 +6,7 @@ from custom_components.peak_power_forecast.forecast import (
     cumulative_delta_to_current_avg_kw,
     energy_to_kwh,
     floor_to_quarter,
+    power_to_kw,
 )
 
 
@@ -17,9 +18,26 @@ def test_kwh_normalization_to_kwh() -> None:
     assert energy_to_kwh(2.5, "kWh") == 2.5
 
 
+def test_w_normalization_to_kw() -> None:
+    assert power_to_kw(2500.0, "W") == 2.5
+
+
+def test_kw_normalization_to_kw() -> None:
+    assert power_to_kw(2.5, "kW") == 2.5
+
+
 def test_unsupported_unit_rejected() -> None:
     try:
         energy_to_kwh(2.5, "MWh")
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("Unsupported unit should raise ValueError")
+
+
+def test_unsupported_power_unit_rejected() -> None:
+    try:
+        power_to_kw(2.5, "MW")
     except ValueError:
         pass
     else:

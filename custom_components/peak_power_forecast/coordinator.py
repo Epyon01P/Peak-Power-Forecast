@@ -33,6 +33,8 @@ from .const import (
     INPUT_MODE_CUMULATIVE,
     INPUT_MODE_DIRECT,
     QUARTER_MINUTES,
+    POWER_UNIT_KW,
+    POWER_UNIT_W,
     SENSOR_KEY_COLOR,
     SENSOR_KEY_FORECAST,
     SENSOR_KEY_PROJECTED,
@@ -47,6 +49,7 @@ from .forecast import (
     detect_reset,
     energy_to_kwh,
     floor_to_quarter,
+    power_to_kw,
 )
 from .visual import (
     effective_critical_threshold,
@@ -175,7 +178,7 @@ class PeakPowerForecastCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         state = self.hass.states.get(self.source_sensor)
         if state is not None:
             if self.input_mode == INPUT_MODE_DIRECT:
-                value = self._state_to_float(state.state)
+                value = self._state_to_power_kw(state)
                 if value is not None:
                     self.runtime.last_source_value = value
                     self.runtime.current_quarter_max = value
@@ -240,7 +243,7 @@ class PeakPowerForecastCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         stale = self._is_stale(now)
 
         if self.input_mode == INPUT_MODE_DIRECT:
-            value = self._state_to_float(new_state.state)
+            value = self._state_to_power_kw(new_state)
             if value is None:
                 self._publish_hold_state()
                 return
@@ -414,5 +417,23 @@ class PeakPowerForecastCoordinator(DataUpdateCoordinator[dict[str, Any]]):
 
         try:
             return energy_to_kwh(numeric, str(unit))
+        except ValueError:
+            return None
+
+    def _state_to_power_kw(self, state: State) -> float | None:
+        """Parse direct power input as kW, supporting W and kW."""
+        numeric = self._state_to_float(state.state)
+        if numeric is None:
+            return None
+
+        unit = state.attributes.get(ATTR_UNIT_OF_MEASUREMENT)
+        if unit is None:
+            # Backward-compatible fallback for sensors without explicit unit metadata.
+            return numeric
+        if unit not in {POWER_UNIT_W, POWER_UNIT_KW}:
+            return None
+
+        try:
+            return power_to_kw(numeric, str(unit))
         except ValueError:
             return None

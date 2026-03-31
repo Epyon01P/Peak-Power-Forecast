@@ -4,7 +4,13 @@ from __future__ import annotations
 
 from datetime import datetime
 
-from .const import ENERGY_UNIT_KWH, ENERGY_UNIT_WH, QUARTER_MINUTES
+from .const import (
+    ENERGY_UNIT_KWH,
+    ENERGY_UNIT_WH,
+    POWER_UNIT_KW,
+    POWER_UNIT_W,
+    QUARTER_MINUTES,
+)
 
 
 def detect_reset(previous: float | None, current: float) -> bool:
@@ -96,6 +102,15 @@ def energy_to_kwh(value: float, unit: str) -> float:
     if unit == ENERGY_UNIT_WH:
         return value / 1000.0
     raise ValueError(f"Unsupported energy unit: {unit}")
+
+
+def power_to_kw(value: float, unit: str) -> float:
+    """Normalize W/kW values to kW."""
+    if unit == POWER_UNIT_KW:
+        return value
+    if unit == POWER_UNIT_W:
+        return value / 1000.0
+    raise ValueError(f"Unsupported power unit: {unit}")
 
 
 def cumulative_delta_to_current_avg_kw(delta_kwh: float, minutes_elapsed: float) -> float:

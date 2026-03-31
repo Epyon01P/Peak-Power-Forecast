@@ -42,6 +42,8 @@ ZERO_QUARTER_FALLBACK = timedelta(minutes=15)
 
 ENERGY_UNIT_WH = "Wh"
 ENERGY_UNIT_KWH = "kWh"
+POWER_UNIT_W = "W"
+POWER_UNIT_KW = "kW"
 
 SENSOR_KEY_FORECAST = "forecast"
 SENSOR_KEY_PROJECTED = "projected"
