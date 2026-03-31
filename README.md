@@ -35,7 +35,7 @@ This integration also has a companion ESPHome project: an unobtrusive LED indica
 1. Open HACS in Home Assistant.
 2. Go to **Integrations -> Custom repositories**.
 3. Add `https://github.com/Epyon01P/Peak-Power-Forecast` as category **Integration**.
-4. Install **Peak Power Forecast** from the HACS store.
+4. Search for and install **Peak Power Forecast** from the HACS store.
 5. Restart Home Assistant.
 
 ## Setup
