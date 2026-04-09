@@ -10,7 +10,7 @@ Instead of extrapolating a monotonically increasing peak consumption sensor that
 
 The peak power forecast is both given as a numeric value and as a color gradient, going from green to red. This gives users immediate insight into whether there is still “room” to turn on additional devices, or whether they should reduce consumption to avoid a high peak at the end of the current quarter hour.
 
-This integration also has a companion ESPHome project: an unobtrusive LED indicator that physically shows the forecast color gradient in realtime (green → amber → red).
+This integration also has a companion ESPHome project called [Peak Power Indicator](https://github.com/Epyon01P/Peak-Power-Indicator): an unobtrusive LED indicator that physically shows the forecast color gradient in realtime (green → amber → red).
 
 ## Requirements
 
