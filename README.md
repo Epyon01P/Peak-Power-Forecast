@@ -114,3 +114,6 @@ This is expected behavior and does not affect the correctness of the forecast.
 ## Localization
 
 UI strings are available in English, Dutch, French, and German.
+
+## License
+This work is licensed under a Creative Commons (4.0 International License): **Attribution**
